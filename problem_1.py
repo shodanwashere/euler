@@ -5,28 +5,21 @@ If we list all the natural numbers below that are multiples of 3 or 5, we get 3,
 Find the sum of all the multiples of 3 or 5 below 1000.
 """
 
-sum = 0
 mult = 0
 multi = 1
+multis = set()
 
 # multiples of 3
 while True:
-  mult = 3 * multi
-  if mult > 1000:
+  m3 = 3 * multi
+  m5 = 5 * multi
+  if m3 >= 1000 and m5 >= 1000:
     break
   else:
-    sum += mult
+    if m3 < 1000:
+      multis.add(m3)
+    if m5 < 1000:
+      multis.add(m5)
     multi += 1
 
-multi = 1 # reset multiplier
-
-# multiples of 5
-while True:
-  mult = 5 * multi
-  if mult > 1000:
-    break:
-  else
-    sum += mult
-    multi += 1
-
-print(sum)
+print(sum(list(multis)))
